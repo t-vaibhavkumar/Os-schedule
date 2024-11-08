@@ -3,20 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scheduling Algorithms</title>
-    <link rel="stylesheet" href="style.css">
+    <title>OS Scheduling Techniques</title>
+    <link rel="stylesheet" href="styl.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <h1>Operating System Scheduling Algorithms</h1>
+        <h1>Scheduling Techniques in Operating Systems</h1>
+        <p>Welcome! This page is a study resource designed for college students to understand the fundamentals of CPU scheduling in operating systems. Scheduling is essential for managing processes and ensuring efficient CPU usage.</p>
     </header>
-    <nav>
+
+    <section class="intro">
+        <h2>Types of Scheduling Approaches</h2>
+        <p>Scheduling methods in operating systems are broadly divided into two main categories:</p>
+        
         <ul>
-            <li><a href="fcfs/fcfs.html">First-Come First-Serve (FCFS)</a></li>
-            <li><a href="rr/rr.html">Round Robin (RR)</a></li>
-            <li><a href="sjf/sjf.html">Shortest Job First (SJF)</a></li>
-            <li><a href="priority/priority.html">Priority Scheduling</a></li>
+            <li><strong>Preemptive Scheduling</strong>: Allows a process to be interrupted mid-execution and moved to the Ready queue, allowing another process to use the CPU. Beneficial for multi-user or real-time systems. Examples:
+                <ul>
+                    <li>Round Robin (RR)</li>
+                    <li>Priority Scheduling (preemptive version)</li>
+                </ul>
+            </li>
+            <li><strong>Non-Preemptive Scheduling</strong>: Once a process starts execution, it cannot be stopped until completion or it voluntarily yields. Reduces overhead but may lead to longer wait times. Examples:
+                <ul>
+                    <li>First-Come, First-Served (FCFS)</li>
+                    <li>Shortest Job First (SJF) (non-preemptive version)</li>
+                </ul>
+            </li>
         </ul>
-    </nav>
+    </section>
+
+    <section class="algorithms">
+        <h2>Popular Scheduling Algorithms</h2>
+        <p>Operating systems use different algorithms to manage process execution effectively. Here are some commonly used scheduling algorithms:</p>
+        
+        <ul>
+            <li><strong>First-Come, First-Served (FCFS)</strong>: Processes are scheduled in the order they arrive, which can lead to long wait times for shorter tasks.</li>
+            <li><strong>Shortest Job First (SJF)</strong>: Executes the shortest tasks first, reducing wait time but risking starvation for longer tasks.</li>
+            <li><strong>Priority Scheduling</strong>: Processes prioritized based on criteria, with higher-priority tasks potentially preempting lower-priority ones. Useful in real-time systems.</li>
+            <li><strong>Round Robin (RR)</strong>: Assigns each process a fixed time slot in a cyclic order, ensuring fair and responsive CPU allocation, ideal for time-sharing systems.</li>
+        </ul>
+
+        <div class="navigation-buttons">
+            <a href="fcfs/fcfs.html" class="nav-button">First-Come, First-Served (FCFS)</a>
+            <a href="sjf/sjf.html" class="nav-button">Shortest Job First (SJF)</a>
+            <a href="priority/priority.html" class="nav-button">Priority Scheduling</a>
+            <a href="rr/rr.html" class="nav-button">Round Robin (RR)</a>
+        </div>
+        
+    </section>
+
+    <section class="key-points">
+        <h2>Important Points to Remember</h2>
+        <ul>
+            <li><strong>Preemptive Scheduling</strong> improves responsiveness, ideal for interactive systems.</li>
+            <li><strong>Non-Preemptive Scheduling</strong> reduces context-switching overhead, though may be inefficient for certain workloads.</li>
+            <li>Algorithms like Round Robin ensure fair CPU allocation, while FCFS may cause the "convoy effect" (where short processes wait for long ones).</li>
+            <li>Understanding the strengths and limitations of each algorithm is key to effective scheduling.</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>&copy; OS Scheduling Project | Study Resource</p>
+    </footer>
 </body>
 </html>

@@ -3,27 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Round Robin (RR) Scheduling</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Round Robin Scheduling Simulation</title>
+    <link rel="stylesheet" href="../styl.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- For Gantt chart -->
 </head>
 <body>
     <header>
-        <h1>Round Robin (RR) Scheduling</h1>
+        <h1>Round Robin (RR) Scheduling Simulation</h1>
+        <p>Round Robin is a CPU scheduling algorithm where each process is given a fixed time slice, or time quantum, ensuring fair CPU allocation. Use the form below to input process details and simulate Round Robin scheduling.</p>
     </header>
-    <section>
-        <h2>Overview</h2>
-        <p>Round Robin (RR) is a preemptive scheduling algorithm where each process is assigned a fixed time slice (time quantum).</p>
-        <h3>Advantages:</h3>
-        <ul>
-            <li>Fair sharing of CPU time.</li>
-            <li>Good for time-sharing systems.</li>
-        </ul>
-        <h3>Disadvantages:</h3>
-        <ul>
-            <li>Context switching overhead.</li>
-            <li>Performance depends on time quantum selection.</li>
-        </ul>
-        <a href="index.html">Back to Home</a>
+
+    <section class="input-section">
+        <h2>Enter Process Details</h2>
+        <form id="processForm">
+            <div>
+                <label>Process ID: <input type="text" id="processId" required></label>
+                <label>Burst Time: <input type="number" id="burstTime" required></label>
+                <label>Arrival Time: <input type="number" id="arrivalTime" required></label>
+                <button type="button" onclick="addProcess()">Add Process</button>
+            </div>
+            <div>
+                <label>Time Quantum: <input type="number" id="timeQuantum" placeholder="Default: 1 ms"></label>
+                <button type="button" onclick="runSimulation()">Run Simulation</button>
+            </div>
+        </form>
     </section>
+
+    <section class="output-section">
+        <h2>Process Execution Animation</h2>
+        <div id="ganttAnimation" style="display: flex; gap: 5px;"></div>
+
+        <h2>Gantt Chart</h2>
+        <canvas id="ganttChart"></canvas>
+        
+        <h2>Final Process Table</h2>
+        <table id="resultTable">
+            <thead>
+                <tr>
+                    <th>Process ID</th>
+                    <th>Arrival Time</th>
+                    <th>Burst Time</th>
+                    <th>Completion Time</th>
+                    <th>Turnaround Time</th>
+                    <th>Waiting Time</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </section>
+
+    <footer>
+        <p>&copy; OS Scheduling Project | Study Resource</p>
+    </footer>
+
+    <!-- Link to the separate JavaScript file -->
+    <script src="rr-simulation.js"></script>
 </body>
 </html>
